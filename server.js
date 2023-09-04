@@ -44,9 +44,8 @@ app.post("/usuario", controller.criarUsuario);
 app.post("/modelo", controller.criarModelo);
 app.post("/moto", controller.criarMoto);
 app.get("/moto", controller.findAllMotos);
-
-// require("./src/routes/user-route")(app);
-// require("./src/routes/address-route")(app);
+app.post("/aluguel", controller.criarAluguel);
+app.get("/aluguel", controller.findAllAlugueis);
 
 const PORT =  3001;
 app.listen(PORT, () => {

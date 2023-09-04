@@ -21,7 +21,11 @@ db.sequelize = sequelize;
 db.Usuario = require("./usuario")(sequelize, Sequelize);
 db.Modelo = require("./modelo")(sequelize, Sequelize);
 db.Moto = require("./moto")(sequelize, Sequelize, db.Modelo);
+db.Aluguel = require("./aluguel")(sequelize, Sequelize, db.Moto, db.Usuario);
 
 db.Moto.belongsTo(db.Modelo, { foreignKey: 'modelo_id', as: 'modelo' });
+db.Aluguel.belongsTo(db.Usuario, { foreignKey: 'usuario_id', as: 'usuario'});
+db.Aluguel.belongsTo(db.Moto, { foreignKey: 'moto_id', as: 'moto'});
+
 
 module.exports = db;

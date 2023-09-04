@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define("user", {
+    const Usuario = sequelize.define("usuario", {
         id: {
             type: DataTypes.INTEGER,
-            field: 'id_user', // aqui renomeamos o campo id para id_user
+            field: 'id_usuario', // aqui renomeamos o campo id para id_user
             primaryKey: true,
             autoIncrement: true
         },
@@ -40,5 +40,5 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         freezeTableName: true
     }, {});
-    return User;
+    return Usuario;
 };
