@@ -19,16 +19,16 @@ module.exports = (sequelize, DataTypes, Modelo) => {
             allowNull: false,
             unique: true
         },
-        km: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        
-        alugado: {
-            type: DataTypes.BOOLEAN(),
+        placa: {
+            type: DataTypes.STRING(),
             allowNull: false,
-            defaultValue: false
+            unique: true
         },
+        cor: {
+            type: DataTypes.STRING(),
+            allowNull: false,
+        }
+        
     }, {
         freezeTableName: true
     });

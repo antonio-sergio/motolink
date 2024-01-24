@@ -30,7 +30,7 @@ const sincronizar = () => {
       console.log("Failha sincronizar db: " + err.message);
     });
 }
-sincronizar();
+// sincronizar();
 //ao rodar a primeira vez a linha abaixo deverá ser descomentada
 //nas demais execuções ela deverá permanecer comentada
 //e efetuar a sicronização só quando houver alteração nos modelos
@@ -40,12 +40,21 @@ app.get("/", (req, res) => {
   res.json({ message: "App está rodando" });
 });
 
+app.post("/login", controller.login);
 app.post("/usuario", controller.criarUsuario);
 app.post("/modelo", controller.criarModelo);
+app.get("/modelo", controller.findAllModelos);
+app.put("/modelo/:id", controller.editarModelo);
 app.post("/moto", controller.criarMoto);
+app.put("/moto/:id", controller.editarMoto);
+app.get("/moto/modelo/:modelo", controller.findAllMotosByModelo);
 app.get("/moto", controller.findAllMotos);
+app.get("/moto/disponiveis", controller.findAllMotosDisponiveis);
 app.post("/aluguel", controller.criarAluguel);
 app.get("/aluguel", controller.findAllAlugueis);
+app.put("/aluguel/:id", controller.editarAluguel);
+app.get("/aluguel/usuario/:id", controller.findAllAlugueisByUsuario);
+app.get("/usuario", controller.findAllUsuarios);
 
 const PORT =  3001;
 app.listen(PORT, () => {

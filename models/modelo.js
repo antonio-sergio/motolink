@@ -14,10 +14,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(),
             allowNull: false,
         },
-        cor: {
-            type: DataTypes.STRING(),
-            allowNull: false,
-        },
+        
         imagem: {
             type: DataTypes.STRING(),
             allowNull: false,
@@ -25,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
         cilindrada: {
             type: DataTypes.STRING(),
             allowNull: false,
+        },
+        destaque: {
+            type: DataTypes.BOOLEAN(),
+            defaultValue: false
         },
         diaria: {
             type: DataTypes.DECIMAL(10, 2),
